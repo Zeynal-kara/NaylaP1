@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">NaylaP1</string>
+    <string name="signup_text_1">You can learn everything</string>
+    <string name="signup_text_2"><b>fast</b> and <b>easily</b> with</string>
+    <string name="signup_button_text">SignUp Now</string>
 </resources>
