@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/recent_cours_item_list_bg"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:paddingLeft="12dp"
+    android:paddingTop="15dp"
+    android:paddingRight="14dp"
+    android:paddingBottom="12dp"
+    android:weightSum="3">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.8"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/img_recent_cours_list_item_icon"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            app:srcCompat="@drawable/recent_cours_icon" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_recent_cours_list_item_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Figma for beginners"
+                android:textColor="@color/_colorTextBlack"
+                android:textSize="16sp"
+                app:fontFamily="@font/gilroy_medium" />
+
+            <TextView
+                android:id="@+id/tv_recent_cours_list_item_duration"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:text="Duration: 24hr 30 min"
+                android:textColor="@color/_colorTextGrey"
+                android:textSize="12sp"
+                app:fontFamily="@font/gilroy_medium" />
+
+            <TextView
+                android:id="@+id/tv_recent_cours_list_item_proces"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/recent_cours_item_list_proces_bg"
+                android:padding="3dp"
+                android:text="Compeleted"
+                android:textColor="@color/_colorTrasBlue"
+                app:fontFamily="@font/gilroy_light" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.2"
+        android:gravity="right"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_recent_cours_list_item_continue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_signup_bg"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:text="Continue"
+            android:textAllCaps="false"
+            android:textColor="@color/_colorWhite"
+            android:textSize="16sp"
+            app:fontFamily="@font/gilroy_medium" />
+
+        <TextView
+            android:id="@+id/tv_recent_cours_list_item_get_sertificate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Get your certificate"
+            android:textColor="@color/_colorTrasBlue"
+            android:textSize="14sp"
+            app:fontFamily="@font/gilroy_medium"
+            tools:visibility="gone" />
+    </LinearLayout>
+
+</LinearLayout>

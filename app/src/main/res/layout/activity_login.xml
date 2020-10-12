@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="20dp"
     android:gravity="center"
+    android:padding="20dp"
     tools:context=".LoginActivity">
 
     <ImageView
@@ -67,10 +67,10 @@
         android:layout_marginTop="35dp"
         android:layout_marginBottom="20dp"
         android:background="@drawable/btn_signup_bg"
+        android:fontFamily="@font/gilroy_bold"
         android:text="@string/signup_button_text"
         android:textAllCaps="false"
-        android:textColor="#FFFFFF"
-        android:fontFamily="@font/gilroy_bold"/>
+        android:textColor="#FFFFFF" />
 
     <TextView
         android:id="@+id/txtOr"
@@ -111,14 +111,14 @@
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
             android:clickable="false"
+            android:fontFamily="@font/gilroy_bold"
             android:freezesText="false"
             android:gravity="left|center_vertical"
             android:hint="Countinue with Facebbok"
             android:paddingLeft="10dp"
             android:stateListAnimator="@null"
             android:text="Continue with Google"
-            android:textAllCaps="false"
-            android:fontFamily="@font/gilroy_bold"/>
+            android:textAllCaps="false" />
     </LinearLayout>
 
     <LinearLayout
@@ -147,11 +147,11 @@
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
             android:clickable="false"
+            android:fontFamily="@font/gilroy_bold"
             android:paddingLeft="10dp"
             android:stateListAnimator="@null"
             android:text="Continue with Facebook"
-            android:textAllCaps="false"
-            android:fontFamily="@font/gilroy_bold"/>
+            android:textAllCaps="false" />
     </LinearLayout>
 
 
