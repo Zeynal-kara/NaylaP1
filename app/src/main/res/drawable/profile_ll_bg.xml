@@ -2,8 +2,8 @@
 
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
     <corners
-        android:topLeftRadius="100dp"
-        android:topRightRadius="100dp"
+        android:topLeftRadius="75dp"
+        android:topRightRadius="75dp"
         android:bottomLeftRadius="30dp"
         android:bottomRightRadius="30dp"/>
 

@@ -1,6 +1,8 @@
 package com.example.naylap1.fragment;
 
 
+import android.graphics.Color;
+import android.graphics.Shader;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,11 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.naylap1.R;
-import com.example.naylap1.adapter.InboxRecyclerViewAdaper;
 import com.example.naylap1.adapter.RecentCoursesRecyclerViewAdapter;
 import com.example.naylap1.object.RecentCours;
 

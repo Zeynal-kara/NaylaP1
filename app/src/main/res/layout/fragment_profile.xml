@@ -17,35 +17,58 @@
             android:id="@+id/rl_profile"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp">
 
             <View
                 android:id="@+id/view2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/imgProfile"
+                android:layout_below="@id/rr_profile"
                 android:layout_marginTop="-30dp"
                 android:background="@drawable/profile_ll_bg" />
 
-            <ImageView
-                android:id="@+id/imgProfile"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+
+
+
+            <com.github.florent37.shapeofview.shapes.RoundRectView
+                android:id="@+id/rr_profile"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:elevation="4dp"
+                app:shape_roundRect_bottomLeftRadius="24dp"
+                app:shape_roundRect_bottomRightRadius="24dp"
+                app:shape_roundRect_topLeftRadius="60dp"
+                app:shape_roundRect_topRightRadius="60dp"
+
                 android:layout_centerHorizontal="true"
-                android:adjustViewBounds="true"
-                android:background="@drawable/profile_bg"
-                app:srcCompat="@drawable/profile_pic" />
+
+                app:shape_roundRect_borderColor="@color/_colorTrasBlue2"
+                app:shape_roundRect_borderWidth="3dp"
+                >
+
+
+                <ImageView
+                    android:id="@+id/imgProfile"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_centerHorizontal="true"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/profile_pic"/>
+
+            </com.github.florent37.shapeofview.shapes.RoundRectView>
 
 
             <LinearLayout
                 android:id="@+id/ll_pp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/imgProfile"
+                android:layout_below="@id/rr_profile"
                 android:layout_centerHorizontal="true"
                 android:gravity="center_horizontal"
                 android:orientation="vertical"
-                android:paddingTop="15dp"
+                android:paddingTop="10dp"
                 android:weightSum="3">
 
 
@@ -61,7 +84,7 @@
                         android:layout_height="wrap_content"
                         android:text="Rachel Green"
                         android:textColor="@color/_colorTextBlack"
-                        android:textSize="16sp"
+                        android:textSize="18sp"
                         app:fontFamily="@font/gilroy_bold" />
 
                     <TextView
@@ -71,7 +94,7 @@
                         android:layout_marginTop="7dp"
                         android:text="Rachel@gmail.com"
                         android:textColor="@color/_colorTextBlack"
-                        android:textSize="12sp"
+                        android:textSize="14sp"
                         app:fontFamily="@font/gilroy_regular" />
 
                     <TextView
@@ -82,7 +105,7 @@
                         android:layout_marginBottom="10dp"
                         android:text="Joined Jun 2019"
                         android:textColor="@color/_colorTextGrey"
-                        android:textSize="8sp"
+                        android:textSize="10sp"
                         app:fontFamily="@font/gilroy_medium" />
                 </LinearLayout>
 
@@ -93,7 +116,7 @@
 
                     <ImageView
                         android:id="@+id/imageView4"
-                        android:layout_width="150dp"
+                        android:layout_width="110dp"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:adjustViewBounds="true"
@@ -105,6 +128,7 @@
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:text="Courses"
+                        android:textSize="10sp"
                         android:textColor="@color/_colorTextBlack"
                         app:fontFamily="@font/gilroy_black" />
                 </RelativeLayout>
@@ -113,6 +137,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
                     android:layout_weight="1"
                     android:orientation="horizontal"
                     android:weightSum="3">
@@ -126,34 +151,35 @@
                         android:gravity="center">
 
                         <View
-                            android:id="@+id/tv_complete_dot_blue"
-                            android:layout_width="12dp"
-                            android:layout_height="12dp"
-                            android:layout_above="@id/tv_in_complete_text"
+                            android:id="@+id/v_complete_dot_blue"
+                            android:layout_width="8dp"
+                            android:layout_height="8dp"
+                            android:layout_above="@id/tv_complete_text"
                             android:layout_marginRight="10dp"
                             android:background="@drawable/profile_dot_blue" />
 
                         <TextView
-                            android:id="@+id/tv_in_complete"
+                            android:id="@+id/tv_complete_num"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_above="@id/tv_in_complete_text"
-                            android:layout_toRightOf="@id/tv_complete_dot_blue"
+                            android:layout_above="@id/tv_complete_text"
+                            android:layout_toEndOf="@id/v_complete_dot_blue"
                             android:text="9"
                             android:layout_marginBottom="-8dp"
                             android:textColor="@color/_colorTextBlack"
-                            android:textSize="18sp"
+                            android:textSize="20sp"
                             app:fontFamily="@font/helvetica" />
 
                         <TextView
-                            android:id="@+id/tv_in_complete_text"
+                            android:id="@+id/tv_complete_text"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentBottom="true"
                             android:layout_marginTop="7dp"
+
                             android:text="Completed"
                             android:textColor="@color/_colorTextGrey"
-                            android:textSize="12sp"
+                            android:textSize="9sp"
                             app:fontFamily="@font/gilroy_medium" />
                     </RelativeLayout>
 
@@ -165,8 +191,8 @@
 
                         <View
                             android:id="@+id/v_complete_dot_green"
-                            android:layout_width="12dp"
-                            android:layout_height="12dp"
+                            android:layout_width="8dp"
+                            android:layout_height="8dp"
                             android:layout_above="@id/tv_in_proses_text"
                             android:layout_marginRight="10dp"
                             android:background="@drawable/profile_dot_green" />
@@ -176,11 +202,11 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_above="@id/tv_in_proses_text"
-                            android:layout_toRightOf="@id/v_complete_dot_green"
+                            android:layout_toEndOf="@id/v_complete_dot_green"
                             android:text="4"
                             android:layout_marginBottom="-8dp"
                             android:textColor="@color/_colorTextBlack"
-                            android:textSize="18sp"
+                            android:textSize="20sp"
                             app:fontFamily="@font/helvetica" />
 
                         <TextView
@@ -189,10 +215,9 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentBottom="true"
                             android:layout_marginTop="7dp"
-                            android:layout_marginBottom="-8dp"
                             android:text="In Progress"
                             android:textColor="@color/_colorTextGrey"
-                            android:textSize="12sp"
+                            android:textSize="9sp"
                             app:fontFamily="@font/gilroy_medium" />
                     </RelativeLayout>
 
@@ -204,22 +229,22 @@
 
                         <View
                             android:id="@+id/v_complete_dot_yellow"
-                            android:layout_width="12dp"
-                            android:layout_height="12dp"
+                            android:layout_width="8dp"
+                            android:layout_height="8dp"
                             android:layout_above="@id/tv_not_started_text"
                             android:layout_marginRight="10dp"
                             android:background="@drawable/profile_dot_yellow" />
 
                         <TextView
-                            android:id="@+id/tv_not_started_num"
+                            android:id="@+id/tv_not_started"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_above="@id/tv_not_started_text"
-                            android:layout_toRightOf="@id/v_complete_dot_yellow"
+                            android:layout_toEndOf="@id/v_complete_dot_yellow"
                             android:text="1"
                             android:layout_marginBottom="-8dp"
                             android:textColor="@color/_colorTextBlack"
-                            android:textSize="18sp"
+                            android:textSize="20sp"
                             app:fontFamily="@font/helvetica" />
 
                         <TextView
@@ -228,11 +253,13 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentBottom="true"
                             android:layout_marginTop="7dp"
-                            android:text="Not Starated"
+                            android:text="Not Started"
                             android:textColor="@color/_colorTextGrey"
-                            android:textSize="12sp"
+                            android:textSize="9sp"
                             app:fontFamily="@font/gilroy_medium" />
                     </RelativeLayout>
+
+
 
                 </LinearLayout>
 
