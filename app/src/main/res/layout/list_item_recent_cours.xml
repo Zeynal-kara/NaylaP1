@@ -93,8 +93,8 @@
             android:text="Get your certificate"
             android:textColor="@color/_colorTrasBlue"
             android:textSize="14sp"
-            app:fontFamily="@font/gilroy_medium"
-            tools:visibility="gone" />
+            android:visibility="gone"
+            app:fontFamily="@font/gilroy_medium" />
     </LinearLayout>
 
 </LinearLayout>

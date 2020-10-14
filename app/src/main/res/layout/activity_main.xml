@@ -10,9 +10,9 @@
         android:id="@+id/ll_toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:layout_marginLeft="20dp"
+        android:layout_marginLeft="25dp"
         android:layout_marginTop="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginRight="25dp"
         android:gravity="center"
         android:orientation="horizontal">
 
@@ -21,24 +21,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Profile"
+            android:text="Title"
             android:textColor="@color/_colorTextBlack"
-            android:textSize="18sp"
+            android:textSize="20sp"
             app:fontFamily="@font/gilroy_medium" />
 
         <ImageView
-            android:id="@+id/imgEdit"
-            android:layout_width="wrap_content"
-            android:layout_height="22dp"
-            android:adjustViewBounds="true"
-            app:srcCompat="@drawable/edit" />
+            android:id="@+id/img_page_icon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:adjustViewBounds="true" />
     </LinearLayout>
 
     <FrameLayout
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/ll_toolbar">
+        android:layout_below="@id/ll_toolbar"
+        android:layout_above="@id/botton_nav">
 
     </FrameLayout>
 
@@ -52,7 +52,6 @@
         app:cnb_menuResource="@menu/bottom_navigation"
         app:cnb_orientationMode="horizontal"
         app:cnb_unselectedColor="@color/_colorTextGrey2"
-        app:itemIconTint="#3485E8"
         app:menu="@menu/bottom_navigation">
 
     </com.ismaeldivita.chipnavigation.ChipNavigationBar>

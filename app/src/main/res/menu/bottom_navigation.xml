@@ -6,19 +6,23 @@
     <item
         android:id="@+id/nav_category"
         android:icon="@drawable/category"
-        android:title="Category" />
+        android:title="Category"
+        app:cnb_iconColor="@color/_colorTrasBlue"/>
     <item
         android:id="@+id/nav_search"
         android:icon="@drawable/search"
-        android:title="Search" />
+        android:title="Search"
+        app:cnb_iconColor="@color/_colorTrasBlue"/>
     <item
         android:id="@+id/nav_message"
         android:icon="@drawable/message"
-        android:title="Message"/>
+        android:title="Inbox"
+        app:cnb_iconColor="@color/_colorTrasBlue"/>
 
     <item
         android:id="@+id/nav_profile"
         android:icon="@drawable/profile"
-        android:title="Profile"/>
+        android:title="Profile"
+        app:cnb_iconColor="@color/_colorTrasBlue"/>
 
 </menu>
