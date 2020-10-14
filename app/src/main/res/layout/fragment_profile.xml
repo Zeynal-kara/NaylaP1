@@ -267,11 +267,12 @@
                 app:fontFamily="@font/gilroy_bold" />
         </LinearLayout>
 
-        <ListView
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_fragment_profile_recent_courses"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:dividerHeight="10dp"
-            tools:listitem="@layout/list_item_recent_cours" />
+            tools:listitem="@layout/list_item_recent_cours"/>
 
 
     </LinearLayout>
