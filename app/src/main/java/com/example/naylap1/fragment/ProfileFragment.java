@@ -8,9 +8,11 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.CountDownTimer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.naylap1.R;
 import com.example.naylap1.adapter.RecentCoursesRvAdapter;
@@ -44,8 +46,9 @@ public class ProfileFragment extends Fragment {
         final RecyclerView recyclerView =
                 getActivity().findViewById(R.id.rv_fragment_profile_recent_courses);
 
-        NestedScrollView nestedScrollView =
-                getActivity().findViewById(R.id.nscoll_view_fragment_profile_recent_courses);
+        final NestedScrollView nestedScrollView =
+                getActivity().findViewById(R.id.nscoll_view_fragment_profile_parent);
+
 
 
         RecentCoursesRvAdapter recentCoursesRvAdapter =
@@ -68,6 +71,24 @@ public class ProfileFragment extends Fragment {
         params.height = 400;
         nestedScrollView.setLayoutParams(params);*/
 
+        scrollUp(nestedScrollView);
+
+
+    }
+
+    private void scrollUp(final NestedScrollView nestedScrollView){
+
+        new CountDownTimer(100, 200) {
+            @Override
+            public void onTick(long l) {
+
+            }
+
+            @Override
+            public void onFinish() {
+                nestedScrollView.scrollTo(0,0);
+            }
+        }.start();
     }
 
 
