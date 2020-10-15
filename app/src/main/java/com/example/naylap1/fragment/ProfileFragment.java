@@ -5,6 +5,8 @@ import android.graphics.Color;
 import android.graphics.Shader;
 import android.os.Bundle;
 
+import androidx.core.view.ViewCompat;
+import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -43,6 +45,8 @@ public class ProfileFragment extends Fragment {
         super.onStart();
 
         final RecyclerView recyclerView = getActivity().findViewById(R.id.rv_fragment_profile_recent_courses);
+        NestedScrollView nestedScrollView = getActivity().findViewById(R.id.nscoll_view_fragment_profile_recent_courses);
+
 
         RecentCoursesRecyclerViewAdapter recentCoursesRecyclerViewAdapter =
                 new RecentCoursesRecyclerViewAdapter(loadData(),
@@ -54,11 +58,18 @@ public class ProfileFragment extends Fragment {
             }
         });
 
-        recyclerView.setAdapter(recentCoursesRecyclerViewAdapter);
+        recyclerView.setNestedScrollingEnabled(false);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
+        recyclerView.setAdapter(recentCoursesRecyclerViewAdapter);
+
+        //TODO burada iyileştirme yapılacak ...
+        /*ViewGroup.LayoutParams params = nestedScrollView.getLayoutParams();
+        params.height = 400;
+        nestedScrollView.setLayoutParams(params);*/
 
     }
+
 
     private List<RecentCours> loadData(){
 
