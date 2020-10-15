@@ -60,16 +60,8 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-        
 
-
-
-
-
-
-
-
-
+        bottomNav.showBadge(R.id.nav_message, 1);
 
 
 

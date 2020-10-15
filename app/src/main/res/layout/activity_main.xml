@@ -52,7 +52,8 @@
         app:cnb_menuResource="@menu/bottom_navigation"
         app:cnb_orientationMode="horizontal"
         app:cnb_unselectedColor="@color/_colorTextGrey2"
-        app:menu="@menu/bottom_navigation">
+        app:menu="@menu/bottom_navigation"
+        app:cnb_badgeColor = "@color/_colorOrange">
 
     </com.ismaeldivita.chipnavigation.ChipNavigationBar>
 

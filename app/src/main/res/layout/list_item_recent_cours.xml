@@ -40,7 +40,6 @@
                 android:layout_height="wrap_content"
                 android:text="Figma for beginners"
                 android:textColor="@color/_colorTextBlack"
-                android:textSize="14sp"
                 app:fontFamily="@font/gilroy_medium" />
 
             <TextView
@@ -51,7 +50,7 @@
                 android:layout_marginBottom="5dp"
                 android:text="Duration: 24hr 30 min"
                 android:textColor="@color/_colorTextGrey"
-                android:textSize="10sp"
+                android:textSize="9sp"
                 app:fontFamily="@font/gilroy_medium" />
 
             <TextView
@@ -62,7 +61,7 @@
                 android:padding="3dp"
                 android:text="Compeleted"
                 android:textColor="@color/_colorTrasBlue"
-                android:textSize="12sp"
+                android:textSize="11sp"
                 app:fontFamily="@font/gilroy_light" />
         </LinearLayout>
     </LinearLayout>
@@ -93,7 +92,6 @@
             android:gravity="center"
             android:text="Get your certificate"
             android:textColor="@color/_colorTrasBlue"
-            android:textSize="12sp"
             android:visibility="gone"
             app:fontFamily="@font/gilroy_medium" />
     </LinearLayout>
