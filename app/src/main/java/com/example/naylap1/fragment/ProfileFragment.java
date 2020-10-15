@@ -1,11 +1,8 @@
 package com.example.naylap1.fragment;
 
 
-import android.graphics.Color;
-import android.graphics.Shader;
 import android.os.Bundle;
 
-import androidx.core.view.ViewCompat;
 import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -16,7 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.naylap1.R;
-import com.example.naylap1.adapter.RecentCoursesRecyclerViewAdapter;
+import com.example.naylap1.adapter.RecentCoursesRvAdapter;
 import com.example.naylap1.object.RecentCours;
 
 import java.util.ArrayList;
@@ -44,24 +41,27 @@ public class ProfileFragment extends Fragment {
     public void onStart() {
         super.onStart();
 
-        final RecyclerView recyclerView = getActivity().findViewById(R.id.rv_fragment_profile_recent_courses);
-        NestedScrollView nestedScrollView = getActivity().findViewById(R.id.nscoll_view_fragment_profile_recent_courses);
+        final RecyclerView recyclerView =
+                getActivity().findViewById(R.id.rv_fragment_profile_recent_courses);
+
+        NestedScrollView nestedScrollView =
+                getActivity().findViewById(R.id.nscoll_view_fragment_profile_recent_courses);
 
 
-        RecentCoursesRecyclerViewAdapter recentCoursesRecyclerViewAdapter =
-                new RecentCoursesRecyclerViewAdapter(loadData(),
-                        new RecentCoursesRecyclerViewAdapter.OnItemClickListener() {
+        RecentCoursesRvAdapter recentCoursesRvAdapter =
+                new RecentCoursesRvAdapter(loadData(),
+                        new RecentCoursesRvAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(RecentCours recentCours, int position) {
 
-                ( (RecentCoursesRecyclerViewAdapter)(recyclerView.getAdapter()) ).getCertificate(position);
+                ( (RecentCoursesRvAdapter)(recyclerView.getAdapter()) ).getCertificate(position);
             }
         });
 
         recyclerView.setNestedScrollingEnabled(false);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        recyclerView.setAdapter(recentCoursesRecyclerViewAdapter);
+        recyclerView.setAdapter(recentCoursesRvAdapter);
 
         //TODO burada iyileştirme yapılacak ...
         /*ViewGroup.LayoutParams params = nestedScrollView.getLayoutParams();

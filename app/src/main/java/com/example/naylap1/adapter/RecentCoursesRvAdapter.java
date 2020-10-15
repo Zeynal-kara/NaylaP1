@@ -2,15 +2,12 @@ package com.example.naylap1.adapter;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import androidx.core.content.res.ResourcesCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.naylap1.R;
@@ -21,7 +18,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.List;
 
 
-public class RecentCoursesRecyclerViewAdapter extends RecyclerView.Adapter<RecentCoursesRecyclerViewAdapter.ViewHolder> {
+public class RecentCoursesRvAdapter extends RecyclerView.Adapter<RecentCoursesRvAdapter.ViewHolder> {
     private List<RecentCours> recentCours;
 
     private OnItemClickListener listener;
@@ -42,15 +39,15 @@ public class RecentCoursesRecyclerViewAdapter extends RecyclerView.Adapter<Recen
 
     }
 
-    public RecentCoursesRecyclerViewAdapter(List<RecentCours> recentCours, OnItemClickListener listener) {
+    public RecentCoursesRvAdapter(List<RecentCours> recentCours, OnItemClickListener listener) {
         this.recentCours = recentCours;
         this.listener = listener;
     }
 
     @NotNull
     @Override
-    public RecentCoursesRecyclerViewAdapter.ViewHolder onCreateViewHolder(ViewGroup parent,
-                                                                 int viewType) {
+    public RecentCoursesRvAdapter.ViewHolder onCreateViewHolder(ViewGroup parent,
+                                                                int viewType) {
 
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);

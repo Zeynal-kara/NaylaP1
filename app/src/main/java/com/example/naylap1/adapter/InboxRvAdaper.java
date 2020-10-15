@@ -20,7 +20,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.List;
 
 
-public class InboxRecyclerViewAdaper extends RecyclerView.Adapter<InboxRecyclerViewAdaper.ViewHolder> {
+public class InboxRvAdaper extends RecyclerView.Adapter<InboxRvAdaper.ViewHolder> {
     private List<InboxMessage> _messages;
     private Typeface font_exrta, font_bold,font_medium;
 
@@ -42,15 +42,15 @@ public class InboxRecyclerViewAdaper extends RecyclerView.Adapter<InboxRecyclerV
 
     }
 
-    public InboxRecyclerViewAdaper(List<InboxMessage> messages, OnItemClickListener listener) {
+    public InboxRvAdaper(List<InboxMessage> messages, OnItemClickListener listener) {
         _messages = messages;
         this.listener = listener;
     }
 
     @NotNull
     @Override
-    public InboxRecyclerViewAdaper.ViewHolder onCreateViewHolder(ViewGroup parent,
-                                                     int viewType) {
+    public InboxRvAdaper.ViewHolder onCreateViewHolder(ViewGroup parent,
+                                                       int viewType) {
 
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
