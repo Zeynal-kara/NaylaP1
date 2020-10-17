@@ -13,7 +13,7 @@ This project is an example app in android studio. Also including Chip Bottom Nav
 For the Navigation, fragment used.
 
 ## Screenshots
-![Example video](https://s8.gifyu.com/images/20201016-012455.gif)
+![Example video](https://github.com/Zeynal-kara/Drive/blob/main/project/naylap1/01.gif)
 
 
 
