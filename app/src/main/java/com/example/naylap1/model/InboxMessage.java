@@ -1,4 +1,4 @@
-package com.example.naylap1.Model;
+package com.example.naylap1.model;
 
 import java.text.DateFormat;
 import java.util.Date;

@@ -1,4 +1,4 @@
-package com.example.naylap1.Model;
+package com.example.naylap1.model;
 
 
 import android.content.Context;

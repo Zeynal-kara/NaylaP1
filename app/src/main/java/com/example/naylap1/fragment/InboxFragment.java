@@ -15,7 +15,7 @@ import android.widget.Toast;
 
 import com.example.naylap1.R;
 import com.example.naylap1.adapter.InboxRvAdapter;
-import com.example.naylap1.Model.InboxMessage;
+import com.example.naylap1.model.InboxMessage;
 
 import java.util.ArrayList;
 import java.util.Date;

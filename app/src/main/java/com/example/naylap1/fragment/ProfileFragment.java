@@ -16,10 +16,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.naylap1.Helper.DialogHelper;
+import com.example.naylap1.helper.DialogHelper;
 import com.example.naylap1.R;
 import com.example.naylap1.adapter.RecentCoursesRvAdapter;
-import com.example.naylap1.Model.RecentCourse;
+import com.example.naylap1.model.RecentCourse;
 
 import java.util.ArrayList;
 import java.util.List;

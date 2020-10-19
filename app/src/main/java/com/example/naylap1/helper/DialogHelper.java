@@ -1,4 +1,4 @@
-package com.example.naylap1.Helper;
+package com.example.naylap1.helper;
 
 import android.app.AlertDialog;
 import android.content.Context;

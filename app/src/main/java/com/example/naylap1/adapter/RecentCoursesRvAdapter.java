@@ -1,7 +1,6 @@
 package com.example.naylap1.adapter;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.naylap1.R;
-import com.example.naylap1.Model.RecentCourse;
+import com.example.naylap1.model.RecentCourse;
 
 import org.jetbrains.annotations.NotNull;
 

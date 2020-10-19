@@ -12,7 +12,7 @@ import androidx.core.content.res.ResourcesCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.naylap1.R;
-import com.example.naylap1.Model.InboxMessage;
+import com.example.naylap1.model.InboxMessage;
 
 import org.jetbrains.annotations.NotNull;
 
