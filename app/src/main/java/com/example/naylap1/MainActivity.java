@@ -4,11 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.naylap1.fragment.CategoriFragment;
+import com.example.naylap1.fragment.CategoryFragment;
 import com.example.naylap1.fragment.InboxFragment;
 import com.example.naylap1.fragment.ProfileFragment;
 import com.example.naylap1.fragment.SearchFragment;
@@ -18,8 +19,8 @@ public class MainActivity extends AppCompatActivity {
 
     ChipNavigationBar bottomNav;
     FragmentManager fragmentManager;
-    TextView tv_page_view;
-    ImageView img_page_icon;
+    TextView tvPageView;
+    ImageView imgPageIcon;
 
 
     @Override
@@ -28,32 +29,38 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         bottomNav = findViewById(R.id.botton_nav);
-        tv_page_view = findViewById(R.id.page_title);
-        img_page_icon = findViewById(R.id.img_page_icon);
+        tvPageView = findViewById(R.id.page_title);
+        imgPageIcon = findViewById(R.id.img_page_icon);
 
 
 
-        setFragment(new ProfileFragment(), "Profile", R.drawable.edit);
+        setFragment(new ProfileFragment(),
+                getString(R.string.bottom_nav_profile_text), R.drawable.edit);
 
         bottomNav.setItemSelected(R.id.nav_profile, true);
 
         bottomNav.setOnItemSelectedListener(new ChipNavigationBar.OnItemSelectedListener() {
+            @SuppressLint("NonConstantResourceId")
             @Override
             public void onItemSelected(int i) {
 
                 switch (i){
                     case R.id.nav_category:
-                        setFragment(new CategoriFragment(), "Categori", R.drawable.feather_search);
+                        setFragment(new CategoryFragment(),
+                                getString(R.string.bottom_nav_category_text), R.drawable.feather_search);
                         break;
                     case R.id.nav_search:
-                        setFragment(new SearchFragment(), "Search", R.drawable.feather_search);
+                        setFragment(new SearchFragment(),
+                                getString(R.string.bottom_nav_search_text), R.drawable.feather_search);
                         break;
                     case R.id.nav_message:
-                        setFragment(new InboxFragment(), "Inbox", R.drawable.feather_search);
+                        setFragment(new InboxFragment(),
+                                getString(R.string.bottom_nav_inbox_text), R.drawable.feather_search);
                         bottomNav.dismissBadge(R.id.nav_message);
                         break;
                     case R.id.nav_profile:
-                        setFragment(new ProfileFragment(), "Profile", R.drawable.edit);
+                        setFragment(new ProfileFragment(),
+                                getString(R.string.bottom_nav_profile_text), R.drawable.edit);
                         break;
                 }
 
@@ -68,8 +75,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void setFragment(Fragment fragment, String title, int drawableResId){
 
-        tv_page_view.setText(title);
-        img_page_icon.setImageResource(drawableResId);
+        tvPageView.setText(title);
+        imgPageIcon.setImageResource(drawableResId);
 
         if (fragment != null){
             fragmentManager = getSupportFragmentManager();

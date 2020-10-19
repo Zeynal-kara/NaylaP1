@@ -1,8 +1,11 @@
 package com.example.naylap1.fragment;
 
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -12,11 +15,11 @@ import android.os.CountDownTimer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
+import com.example.naylap1.Helper.DialogHelper;
 import com.example.naylap1.R;
 import com.example.naylap1.adapter.RecentCoursesRvAdapter;
-import com.example.naylap1.object.RecentCours;
+import com.example.naylap1.Model.RecentCourse;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,8 +27,9 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ProfileFragment extends Fragment {
+public class ProfileFragment extends Fragment implements RecentCoursesRvAdapter.OnItemClickListener{
 
+    RecyclerView recyclerView;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -39,11 +43,12 @@ public class ProfileFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_profile, container, false);
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
 
-        final RecyclerView recyclerView =
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+       recyclerView =
                 getActivity().findViewById(R.id.rv_fragment_profile_recent_courses);
 
         final NestedScrollView nestedScrollView =
@@ -52,30 +57,45 @@ public class ProfileFragment extends Fragment {
 
 
         RecentCoursesRvAdapter recentCoursesRvAdapter =
-                new RecentCoursesRvAdapter(loadData(),
-                        new RecentCoursesRvAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(RecentCours recentCours, int position) {
+                new RecentCoursesRvAdapter(loadData(), this);
 
-                ( (RecentCoursesRvAdapter)(recyclerView.getAdapter()) ).getCertificate(position);
-            }
-        });
-
-        recyclerView.setNestedScrollingEnabled(false);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         recyclerView.setAdapter(recentCoursesRvAdapter);
 
-        //TODO burada iyileştirme yapılacak ...
-        /*ViewGroup.LayoutParams params = nestedScrollView.getLayoutParams();
-        params.height = 400;
-        nestedScrollView.setLayoutParams(params);*/
-
         scrollUp(nestedScrollView);
-
-
     }
 
+    @Override
+    public void onItemClick(RecentCourse recentCourse, int position) {
+
+       completeCourseDialog(position);
+    }
+
+    /*@Description: This method allows the recent courses to be completed.*/
+    private void completeCourseDialog(final int position){
+
+        AlertDialog.Builder builder = DialogHelper.alertBuilder(getContext());
+        builder.setTitle(getString(R.string.dialog_title_text));
+        builder.setMessage(getString(R.string.dialog_message_text));
+        builder.setNegativeButton(getString(R.string.dialog_no_text), null);
+
+        builder.setPositiveButton(getString(R.string.dialog_yes_text),
+                new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                ( (RecentCoursesRvAdapter)(recyclerView.getAdapter()) )
+                        .getCertificate(position);
+            }
+        });
+        builder.show();
+    }
+
+    /*
+    * When this fragment started, recyclerview is going to top.
+    * Recyclerview include user recent courses list.
+    * @Description: This method scrolls nestedscrollview to top.
+    */
     private void scrollUp(final NestedScrollView nestedScrollView){
 
         new CountDownTimer(100, 200) {
@@ -92,31 +112,41 @@ public class ProfileFragment extends Fragment {
     }
 
 
-    private List<RecentCours> loadData(){
+    //Load mock item for testing ...
+    private List<RecentCourse> loadData(){
 
-        List<RecentCours> recentCoursesList = new ArrayList<>();
+        List<RecentCourse> recentCoursesList = new ArrayList<>();
 
-        RecentCours recentCours = new RecentCours(RecentCours.ProcessCode.COMPLETED);
-        recentCours.setTitle("Figma for beginners");
-        recentCours.setIsContinue(false);
-        recentCours.setDuration("Duration: 24hr 30 min");
-        recentCours.setImgIconResId(R.drawable.recent_cours_icon);
+        RecentCourse recentCourse = new RecentCourse(RecentCourse.ProcessCode.COMPLETED);
+        recentCourse.setTitle("Figma for beginners");
+        recentCourse.setIsContinue(false);
+        recentCourse.setDuration("Duration: 24hr 30 min");
+        recentCourse.setImgIconResId(R.drawable.recent_cours_icon);
 
-        recentCoursesList.add(recentCours);
+        recentCoursesList.add(recentCourse);
 
         for (int i=0; i<7; i++){
 
-            RecentCours recentCours1 = new RecentCours(RecentCours.ProcessCode.IN_PROCESS);
-            recentCours1.setTitle("Figma for beginners"+i);
-            recentCours1.setIsContinue(true);
-            recentCours1.setDuration("Duration: 24hr 30 min");
-            recentCours1.setImgIconResId(R.drawable.recent_cours_icon);
+            RecentCourse recentCourse1 = new RecentCourse(RecentCourse.ProcessCode.IN_PROCESS);
+            recentCourse1.setTitle("Figma for beginners"+i);
+            recentCourse1.setIsContinue(true);
+            recentCourse1.setDuration("Duration: 24hr 30 min");
+            recentCourse1.setImgIconResId(R.drawable.recent_cours_icon);
 
-            recentCoursesList.add(recentCours1);
+            recentCoursesList.add(recentCourse1);
 
         }
+
+        RecentCourse recentCourse2 = new RecentCourse(RecentCourse.ProcessCode.NOT_STARTED);
+        recentCourse2.setTitle("Figma for beginners");
+        recentCourse2.setIsContinue(true);
+        recentCourse2.setDuration("Duration: 24hr 30 min");
+        recentCourse2.setImgIconResId(R.drawable.recent_cours_icon);
+        recentCoursesList.add(recentCourse2);
 
         return recentCoursesList;
 
     }
+
+
 }

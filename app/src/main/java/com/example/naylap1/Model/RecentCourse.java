@@ -1,7 +1,11 @@
-package com.example.naylap1.object;
+package com.example.naylap1.Model;
 
 
-public class RecentCours {
+import android.content.Context;
+
+import com.example.naylap1.R;
+
+public class RecentCourse {
 
     int imgIconResId;
     String title, duration;
@@ -15,7 +19,7 @@ public class RecentCours {
         NOT_STARTED
     }
 
-    public RecentCours(ProcessCode processCode){
+    public RecentCourse(ProcessCode processCode){
         this.processCode = processCode;
     }
 
@@ -44,22 +48,22 @@ public class RecentCours {
     }
 
 
-    public String getProcessText(){
+    public String getProcessText(Context context){
 
         switch (processCode){
-            case COMPLETED:  return "Completed";
-            case IN_PROCESS:  return "In Progress";
-            case NOT_STARTED:  return "Not Started";
-            default: return "Process Not Defined!";
+            case COMPLETED:  return context.getString(R.string.process_text_completed);
+            case IN_PROCESS:  return context.getString(R.string.process_text_in_process);
+            case NOT_STARTED:  return context.getString(R.string.process_text_not_started);
+            default: return context.getString(R.string.process_text_not_define);
         }
     }
 
 
-    public RecentCours.ProcessCode getProcessCode() {
+    public RecentCourse.ProcessCode getProcessCode() {
         return processCode;
     }
 
-    public void setProcessCode(RecentCours.ProcessCode processCode) {
+    public void setProcessCode(RecentCourse.ProcessCode processCode) {
         this.processCode = processCode;
     }
 

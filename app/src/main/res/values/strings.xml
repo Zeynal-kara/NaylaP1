@@ -4,4 +4,19 @@
     <string name="signup_text_2"><b>fast</b> and <b>easily</b> with</string>
     <string name="signup_button_text">SignUp Now</string>
 
+    <string name="bottom_nav_category_text">Category</string>
+    <string name="bottom_nav_search_text">Search</string>
+    <string name="bottom_nav_inbox_text">Inbox</string>
+    <string name="bottom_nav_profile_text">Profile</string>
+
+    <string name="dialog_title_text">Are You Sure ?</string>
+    <string name="dialog_message_text">Set completed for this course.</string>
+    <string name="dialog_no_text">No</string>
+    <string name="dialog_yes_text">Yes</string>
+
+    <string name="process_text_completed">Completed</string>
+    <string name="process_text_in_process">In Progress</string>
+    <string name="process_text_not_started">Not Started</string>
+    <string name="process_text_not_define">Process Not Defined</string>
+
 </resources>

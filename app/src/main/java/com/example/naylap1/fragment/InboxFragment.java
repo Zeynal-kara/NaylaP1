@@ -3,6 +3,7 @@ package com.example.naylap1.fragment;
 
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,8 +14,8 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.naylap1.R;
-import com.example.naylap1.adapter.InboxRvAdaper;
-import com.example.naylap1.object.InboxMessage;
+import com.example.naylap1.adapter.InboxRvAdapter;
+import com.example.naylap1.Model.InboxMessage;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -38,41 +39,40 @@ public class InboxFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_inbox, container, false);
     }
 
-
     @Override
-    public void onStart() {
-        super.onStart();
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
         final RecyclerView recyclerView = getActivity().findViewById(R.id.rv_fragment_inbox);
 
-        InboxRvAdaper inboxRvAdaper = new InboxRvAdaper(loadList(),
-                new InboxRvAdaper.OnItemClickListener() {
+        InboxRvAdapter inboxRvAdapter = new InboxRvAdapter(loadList(),
+                new InboxRvAdapter.OnItemClickListener() {
 
-            @Override
-            public void onItemClick(InboxMessage inboxMessage, int position) {
-                Toast.makeText(getContext(), "Mesaj Okundu ...", Toast.LENGTH_LONG).show();
-                ( (InboxRvAdaper)(recyclerView.getAdapter()) ).setItemRead(position);
+                    @Override
+                    public void onItemClick(InboxMessage inboxMessage, int position) {
+                        Toast.makeText(getContext(), "Mesaj Okundu ...", Toast.LENGTH_LONG).show();
+                        ( (InboxRvAdapter)(recyclerView.getAdapter()) ).setItemRead(position);
 
 
-            }
-        });
+                    }
+                });
 
-        recyclerView.setAdapter(inboxRvAdaper);
+        recyclerView.setAdapter(inboxRvAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-
-
-
     }
 
+
+    //Load mock item for testing ...
     private List<InboxMessage> loadList(){
 
-        List<InboxMessage>  inboxMessageList = new ArrayList<>();
+        List<InboxMessage>  messageList = new ArrayList<>();
         InboxMessage inboxMessage = new InboxMessage();
         inboxMessage.setTitle("From: Figma course");
         inboxMessage.setContent("Congratulations! You passed the test and your certificate is ready.");
         inboxMessage.setUnreadCount(1);
         inboxMessage.setDate(new Date());
 
-        inboxMessageList.add(inboxMessage);
+        messageList.add(inboxMessage);
 
 
 
@@ -83,12 +83,12 @@ public class InboxFragment extends Fragment {
             inboxMessage1.setContent("Congratulations! You passed the test and your certificate is ready.");
             inboxMessage1.setUnreadCount(0);
             inboxMessage1.setDate(new Date());
-            inboxMessageList.add(inboxMessage1);
+            messageList.add(inboxMessage1);
 
         }
 
 
 
-        return inboxMessageList;
+        return messageList;
     }
 }

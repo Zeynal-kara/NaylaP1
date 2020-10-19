@@ -8,10 +8,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.naylap1.R;
-import com.example.naylap1.object.RecentCours;
+import com.example.naylap1.Model.RecentCourse;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -19,29 +20,30 @@ import java.util.List;
 
 
 public class RecentCoursesRvAdapter extends RecyclerView.Adapter<RecentCoursesRvAdapter.ViewHolder> {
-    private List<RecentCours> recentCours;
+    private List<RecentCourse> mRecentCourses;
 
-    private OnItemClickListener listener;
+    private OnItemClickListener mListener;
+    private int mColorComplete, mColorInProcess, mColorNotStarted;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         // each data item is just a string in this case
-        public TextView tv_title, tv_duration, tv_process, tv_get_certificate;
+        public TextView tvTitle, tvDuration, tvProcess, tvGetCertificate;
         Button btnContinue;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            tv_title = itemView.findViewById(R.id.tv_recent_cours_list_item_title);
-            tv_duration = itemView.findViewById(R.id.tv_recent_cours_list_item_duration);
-            tv_process = itemView.findViewById(R.id.tv_recent_cours_list_item_process);
-            tv_get_certificate = itemView.findViewById(R.id.tv_recent_cours_list_item_get_certificate);
+            tvTitle = itemView.findViewById(R.id.tv_recent_cours_list_item_title);
+            tvDuration = itemView.findViewById(R.id.tv_recent_cours_list_item_duration);
+            tvProcess = itemView.findViewById(R.id.tv_recent_cours_list_item_process);
+            tvGetCertificate = itemView.findViewById(R.id.tv_recent_cours_list_item_get_certificate);
             btnContinue = itemView.findViewById(R.id.btn_recent_cours_list_item_continue);
         }
 
     }
 
-    public RecentCoursesRvAdapter(List<RecentCours> recentCours, OnItemClickListener listener) {
-        this.recentCours = recentCours;
-        this.listener = listener;
+    public RecentCoursesRvAdapter(List<RecentCourse> recentCourses, OnItemClickListener listener) {
+        this.mRecentCourses = recentCourses;
+        this.mListener = listener;
     }
 
     @NotNull
@@ -64,22 +66,24 @@ public class RecentCoursesRvAdapter extends RecyclerView.Adapter<RecentCoursesRv
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
 
-        holder.tv_title.setText(recentCours.get(position).getTitle());
-        holder.tv_duration.setText(recentCours.get(position).getDuration());
-        holder.tv_process.setText(recentCours.get(position).getProcessText());
+        holder.tvTitle.setText(mRecentCourses.get(position).getTitle());
+        holder.tvDuration.setText(mRecentCourses.get(position).getDuration());
 
-        switch (recentCours.get(position).getProcessCode()){
-            case COMPLETED: holder.tv_process.setTextColor(Color.parseColor("#3485E8")); break;
-            case IN_PROCESS: holder.tv_process.setTextColor(Color.parseColor("#30E3CA")); break;
-            case NOT_STARTED: holder.tv_process.setTextColor(Color.parseColor("#F9CE00")); break;
+        holder.tvProcess.setText(mRecentCourses.get(position).
+                getProcessText(holder.tvProcess.getContext()));
+
+        switch (mRecentCourses.get(position).getProcessCode()){
+            case COMPLETED: holder.tvProcess.setTextColor(mColorComplete); break;
+            case IN_PROCESS: holder.tvProcess.setTextColor(mColorInProcess); break;
+            case NOT_STARTED: holder.tvProcess.setTextColor(mColorNotStarted); break;
         }
 
-        if (!recentCours.get(position).getIsContinue()){
-            holder.tv_get_certificate.setVisibility(View.VISIBLE);
+        if (!mRecentCourses.get(position).getIsContinue()){
+            holder.tvGetCertificate.setVisibility(View.VISIBLE);
             holder.btnContinue.setVisibility(View.GONE);
         }
         else{
-            holder.tv_get_certificate.setVisibility(View.GONE);
+            holder.tvGetCertificate.setVisibility(View.GONE);
             holder.btnContinue.setVisibility(View.VISIBLE);
         }
 
@@ -87,7 +91,7 @@ public class RecentCoursesRvAdapter extends RecyclerView.Adapter<RecentCoursesRv
             @Override
             public void onClick(View view) {
 
-                listener.onItemClick(recentCours.get(position), position);
+                mListener.onItemClick(mRecentCourses.get(position), position);
 
             }
         });
@@ -98,27 +102,38 @@ public class RecentCoursesRvAdapter extends RecyclerView.Adapter<RecentCoursesRv
     // Return the size of your dataset (invoked by the layout manager)
     @Override
     public int getItemCount() {
-        return recentCours.size();
+        return mRecentCourses.size();
     }
 
-    public RecentCours getItem(int position) {
-        return recentCours.get(position);
+    public RecentCourse getItem(int position) {
+        return mRecentCourses.get(position);
     }
 
     public void removeItem(int position) {
-        recentCours.remove(position);
+        mRecentCourses.remove(position);
         notifyDataSetChanged();
 
     }
 
     public void getCertificate(int position){
-        recentCours.get(position).setIsContinue(false);
+        mRecentCourses.get(position).setIsContinue(false);
+        mRecentCourses.get(position).setProcessCode(RecentCourse.ProcessCode.COMPLETED);
         notifyDataSetChanged();
     }
 
 
     public interface OnItemClickListener {
-        void onItemClick(RecentCours recentCours, int position);
+        void onItemClick(RecentCourse recentCourse, int position);
+
+    }
+
+    @Override
+    public void onAttachedToRecyclerView(@NonNull RecyclerView recyclerView) {
+        super.onAttachedToRecyclerView(recyclerView);
+        Context context = recyclerView.getContext();
+        mColorComplete = context.getResources().getColor(R.color._colorTrasBlue, null);
+        mColorInProcess = context.getResources().getColor(R.color._colorTrasGreen, null);
+        mColorNotStarted = context.getResources().getColor(R.color._colorTrasYellow, null);
 
     }
 }

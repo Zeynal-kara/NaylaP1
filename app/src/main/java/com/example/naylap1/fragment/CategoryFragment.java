@@ -13,10 +13,10 @@ import com.example.naylap1.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class CategoriFragment extends Fragment {
+public class CategoryFragment extends Fragment {
 
 
-    public CategoriFragment() {
+    public CategoryFragment() {
         // Required empty public constructor
     }
 

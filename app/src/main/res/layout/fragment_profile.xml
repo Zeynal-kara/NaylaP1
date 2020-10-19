@@ -296,21 +296,12 @@
                 app:fontFamily="@font/gilroy_bold" />
         </LinearLayout>
 
-        <androidx.core.widget.NestedScrollView
-            android:id="@+id/nscoll_view_fragment_profile_recent_courses"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_fragment_profile_recent_courses"
             android:layout_width="match_parent"
-            android:layout_height="400dp"
-            android:orientation="vertical">
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_fragment_profile_recent_courses"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:dividerHeight="10dp"
-                tools:listitem="@layout/list_item_recent_cours"/>
-
-        </androidx.core.widget.NestedScrollView>
-
+            android:layout_height="wrap_content"
+            android:dividerHeight="10dp"
+            tools:listitem="@layout/list_item_recent_cours"/>
 
     </LinearLayout>
 
