@@ -33,14 +33,14 @@
             android:adjustViewBounds="true" />
     </LinearLayout>
 
-    <FrameLayout
-        android:id="@+id/fragment_container"
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/vp_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/ll_toolbar"
         android:layout_above="@id/botton_nav">
 
-    </FrameLayout>
+    </androidx.viewpager2.widget.ViewPager2>
 
 
     <com.ismaeldivita.chipnavigation.ChipNavigationBar

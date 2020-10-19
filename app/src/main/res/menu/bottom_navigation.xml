@@ -14,7 +14,7 @@
         android:title="Search"
         app:cnb_iconColor="@color/_colorTrasBlue"/>
     <item
-        android:id="@+id/nav_message"
+        android:id="@+id/nav_inbox"
         android:icon="@drawable/message"
         android:title="Inbox"
         app:cnb_iconColor="@color/_colorTrasBlue"/>

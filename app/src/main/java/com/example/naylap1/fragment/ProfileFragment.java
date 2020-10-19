@@ -35,6 +35,15 @@ public class ProfileFragment extends Fragment implements RecentCoursesRvAdapter.
         // Required empty public constructor
     }
 
+    public static ProfileFragment newInstance() {
+
+        Bundle args = new Bundle();
+
+        ProfileFragment fragment = new ProfileFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

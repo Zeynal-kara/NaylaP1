@@ -20,6 +20,15 @@ public class CategoryFragment extends Fragment {
         // Required empty public constructor
     }
 
+    public static CategoryFragment newInstance() {
+
+        Bundle args = new Bundle();
+
+        CategoryFragment fragment = new CategoryFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
