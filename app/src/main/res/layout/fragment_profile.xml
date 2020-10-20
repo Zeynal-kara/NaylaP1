@@ -84,7 +84,7 @@
                         android:id="@+id/tvUserName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Rachel Green"
+                        android:text="@string/user_name_text"
                         android:textColor="@color/_colorTextBlack"
                         android:textSize="18sp"
                         app:fontFamily="@font/gilroy_bold" />
@@ -94,7 +94,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="7dp"
-                        android:text="Rachel@gmail.com"
+                        android:text="@string/user_mail"
                         android:textColor="@color/_colorTextBlack"
                         android:textSize="14sp"
                         app:fontFamily="@font/gilroy_regular" />
@@ -105,7 +105,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="7dp"
                         android:layout_marginBottom="10dp"
-                        android:text="Joined Jun 2019"
+                        android:text="@string/user_join_date"
                         android:textColor="@color/_colorTextGrey"
                         android:textSize="10sp"
                         app:fontFamily="@font/gilroy_medium" />
@@ -129,7 +129,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
-                        android:text="Courses"
+                        android:text="@string/user_profile_courses_text"
                         android:textSize="10sp"
                         android:textColor="@color/_colorTextBlack"
                         app:fontFamily="@font/gilroy_black" />
@@ -166,7 +166,7 @@
                             android:layout_height="wrap_content"
                             android:layout_above="@id/tv_complete_text"
                             android:layout_toEndOf="@id/v_complete_dot_blue"
-                            android:text="9"
+                            android:text="@string/course_complete_count"
                             android:layout_marginBottom="-8dp"
                             android:textColor="@color/_colorTextBlack"
                             android:textSize="20sp"
@@ -179,7 +179,7 @@
                             android:layout_alignParentBottom="true"
                             android:layout_marginTop="7dp"
 
-                            android:text="Completed"
+                            android:text="@string/process_text_completed"
                             android:textColor="@color/_colorTextGrey"
                             android:textSize="9sp"
                             app:fontFamily="@font/gilroy_medium" />
@@ -205,7 +205,7 @@
                             android:layout_height="wrap_content"
                             android:layout_above="@id/tv_in_proses_text"
                             android:layout_toEndOf="@id/v_complete_dot_green"
-                            android:text="4"
+                            android:text="@string/course_in_process_count"
                             android:layout_marginBottom="-8dp"
                             android:textColor="@color/_colorTextBlack"
                             android:textSize="20sp"
@@ -217,7 +217,7 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentBottom="true"
                             android:layout_marginTop="7dp"
-                            android:text="In Progress"
+                            android:text="@string/process_text_in_process"
                             android:textColor="@color/_colorTextGrey"
                             android:textSize="9sp"
                             app:fontFamily="@font/gilroy_medium" />
@@ -243,7 +243,7 @@
                             android:layout_height="wrap_content"
                             android:layout_above="@id/tv_not_started_text"
                             android:layout_toEndOf="@id/v_complete_dot_yellow"
-                            android:text="1"
+                            android:text="@string/course_not_started_count"
                             android:layout_marginBottom="-8dp"
                             android:textColor="@color/_colorTextBlack"
                             android:textSize="20sp"
@@ -255,7 +255,7 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentBottom="true"
                             android:layout_marginTop="7dp"
-                            android:text="Not Started"
+                            android:text="@string/process_text_not_started"
                             android:textColor="@color/_colorTextGrey"
                             android:textSize="9sp"
                             app:fontFamily="@font/gilroy_medium" />
@@ -282,7 +282,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text=" Recent courses"
+                android:text="@string/course_recent_text"
                 android:textColor="@color/_colorTextBlack"
                 android:textSize="16sp"
                 app:fontFamily="@font/gilroy_bold" />
@@ -291,7 +291,7 @@
                 android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="View all"
+                android:text="@string/course_view_all_text"
                 android:textColor="@color/_colorTextGrey2"
                 app:fontFamily="@font/gilroy_bold" />
         </LinearLayout>

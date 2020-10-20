@@ -6,23 +6,23 @@
     <item
         android:id="@+id/nav_category"
         android:icon="@drawable/category"
-        android:title="Category"
+        android:title="@string/nav_category"
         app:cnb_iconColor="@color/_colorTrasBlue"/>
     <item
         android:id="@+id/nav_search"
         android:icon="@drawable/search"
-        android:title="Search"
+        android:title="@string/nav_search"
         app:cnb_iconColor="@color/_colorTrasBlue"/>
     <item
         android:id="@+id/nav_inbox"
         android:icon="@drawable/message"
-        android:title="Inbox"
+        android:title="@string/nav_inbox"
         app:cnb_iconColor="@color/_colorTrasBlue"/>
 
     <item
         android:id="@+id/nav_profile"
         android:icon="@drawable/profile"
-        android:title="Profile"
+        android:title="@string/nav_profile"
         app:cnb_iconColor="@color/_colorTrasBlue"/>
 
 </menu>

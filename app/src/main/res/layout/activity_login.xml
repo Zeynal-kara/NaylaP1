@@ -52,7 +52,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@id/btnSignUp"
         android:layout_centerHorizontal="true"
-        android:text="Coursa"
+        android:text="@string/signup_text_3"
         android:textColor="#3485E8"
         android:textSize="22sp"
         android:textStyle="bold"
@@ -78,7 +78,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@id/ll_sign_google"
         android:layout_centerHorizontal="true"
-        android:text="Or"
+        android:text="@string/signup_text_4"
         android:textColor="#111318"
         android:textSize="14sp"
         app:fontFamily="@font/gilroy_bold" />
@@ -115,10 +115,10 @@
             android:fontFamily="@font/gilroy_bold"
             android:freezesText="false"
             android:gravity="left|center_vertical"
-            android:hint="Countinue with Facebbok"
+            android:hint="@string/continue_with_face"
             android:paddingLeft="10dp"
             android:stateListAnimator="@null"
-            android:text="Continue with Google"
+            android:text="@string/continue_with_google"
             android:textAllCaps="false" />
     </LinearLayout>
 
@@ -151,7 +151,7 @@
             android:fontFamily="@font/gilroy_bold"
             android:paddingLeft="10dp"
             android:stateListAnimator="@null"
-            android:text="Continue with Facebook"
+            android:text="@string/continue_with_face"
             android:textAllCaps="false" />
     </LinearLayout>
 

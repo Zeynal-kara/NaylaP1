@@ -2,6 +2,11 @@
     <string name="app_name">NaylaP1</string>
     <string name="signup_text_1">You can learn everything</string>
     <string name="signup_text_2"><b>fast</b> and <b>easily</b> with</string>
+    <string name="signup_text_3">Coursa</string>
+    <string name="signup_text_4">Or</string>
+
+    <string name="activity_title">Title</string>
+
     <string name="signup_button_text">SignUp Now</string>
 
     <string name="bottom_nav_category_text">Category</string>
@@ -21,12 +26,43 @@
     <string name="get_certificate_dialog_title_text">Are You Sure ?</string>
     <string name="get_certificate_dialog_message_text">Get your certificate now!</string>
 
+    <string name="btn_begin_text">Begin</string>
+    <string name="btn_continue_text">Continue</string>
+
+    <string name="continue_with_google">Continue with Google</string>
+    <string name="continue_with_face">Continue with Facebook</string>
+
+    <string name="user_name_text">Rachel Green</string>
+    <string name="user_mail">Rachel@gmail.com</string>
+    <string name="user_join_date">Joined Jun 2019</string>
+    <!-- static field -->
+    <string name="user_profile_courses_text">Courses</string>
+
+    <string name="course_complete_count">9</string>
+    <string name="course_in_process_count">4</string>
+    <string name="course_not_started_count">1</string>
     <string name="process_text_completed">Completed</string>
     <string name="process_text_in_process">In Progress</string>
     <string name="process_text_not_started">Not Started</string>
     <string name="process_text_not_define">Process Not Defined</string>
+    <string name="course_recent_text">Recent courses</string>
+    <string name="course_view_all_text">View all</string>
 
-    <string name="btn_begin_text">Begin</string>
-    <string name="btn_continue_text">Continue</string>
+    <string name="list_item_course_title">Figma for beginners</string>
+    <string name="list_item_course_duration">Duration: 24hr 30 min</string>
+    <string name="list_item_course_process">Compeleted</string>
+    <string name="list_item_course_btn_text">Continue</string>
+    <string name="list_item_course_certificate">Get your certificate</string>
+
+    <string name="list_item_message_title">From: Figma course</string>
+    <string name="list_item_message_content">Hi Rachel. we recieved your message and we will answer you ASAP.</string>
+    <string name="list_item_message_date">Sun 09:30</string>
+
+    <string name="nav_category">Category</string>
+    <string name="nav_search">Search</string>
+    <string name="nav_inbox">Inbox</string>
+    <string name="nav_profile">Profile</string>
+
+
 
 </resources>

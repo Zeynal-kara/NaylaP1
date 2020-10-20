@@ -40,7 +40,7 @@
                     android:id="@+id/tv_inbox_list_item_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="From: Figma course"
+                    android:text="@string/list_item_message_title"
                     android:textColor="@color/_colorTextBlack"
                     android:textSize="18sp"
                     app:fontFamily="@font/gilroy_medium" />
@@ -51,7 +51,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="7dp"
                     android:layout_weight="1"
-                    android:text="Hi Rachel. we recieved your message and we will answer you ASAP."
+                    android:text="@string/list_item_message_content"
                     android:textColor="@color/_colorTextGrey3"
                     app:fontFamily="@font/gilroy_medium" />
             </LinearLayout>
@@ -91,7 +91,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="12dp"
-                android:text="Sun 09:30"
+                android:text="@string/list_item_message_date"
                 android:textColor="@color/_colorTextGrey3"
                 android:textSize="10sp" />
         </LinearLayout>
