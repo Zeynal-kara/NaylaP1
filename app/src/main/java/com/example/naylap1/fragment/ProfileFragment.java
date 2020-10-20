@@ -15,19 +15,18 @@ import android.os.CountDownTimer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.naylap1.helper.DialogHelper;
 import com.example.naylap1.R;
-import com.example.naylap1.adapter.RecentCoursesRvAdapter;
-import com.example.naylap1.model.RecentCourse;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.example.naylap1.adapter.CoursesRvAdapter;
+import com.example.naylap1.model.Course;
+import com.example.naylap1.model.User;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ProfileFragment extends Fragment implements RecentCoursesRvAdapter.OnItemClickListener{
+public class ProfileFragment extends Fragment implements CoursesRvAdapter.OnItemClickListener{
 
     RecyclerView recyclerView;
 
@@ -64,39 +63,82 @@ public class ProfileFragment extends Fragment implements RecentCoursesRvAdapter.
                 getActivity().findViewById(R.id.nscoll_view_fragment_profile_parent);
 
 
+        User user = User.getInstance();
 
-        RecentCoursesRvAdapter recentCoursesRvAdapter =
-                new RecentCoursesRvAdapter(loadData(), this);
+        CoursesRvAdapter coursesRvAdapter =
+                new CoursesRvAdapter(user.getCourseManager().getCourseList(), this);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        recyclerView.setAdapter(recentCoursesRvAdapter);
+        recyclerView.setAdapter(coursesRvAdapter);
 
         scrollUp(nestedScrollView);
     }
 
     @Override
-    public void onItemClick(RecentCourse recentCourse, int position) {
+    public void onItemClick(Course course, int position) {
 
-       completeCourseDialog(position);
+        switch (course.getProcessCode()){
+            case COMPLETED:  getCertificateCourseDialog(position); break;
+            case IN_PROCESS: completeCourseDialog(position);  break;
+            case NOT_STARTED: beginCourseDialog(position); break;
+        }
+
+    }
+
+    /*@Description: This method allows the recent courses to be completed.*/
+    private void getCertificateCourseDialog(final int position){
+
+        AlertDialog.Builder builder = DialogHelper.alertBuilder(getContext());
+        builder.setTitle(getString(R.string.get_certificate_dialog_title_text));
+        builder.setMessage(getString(R.string.get_certificate_dialog_message_text));
+        builder.setNegativeButton(getString(R.string.dialog_no_text), null);
+
+        builder.setPositiveButton(getString(R.string.dialog_yes_text),
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Toast.makeText(getContext(), "Success!", Toast.LENGTH_SHORT).show();
+                    }
+                });
+        builder.show();
+    }
+
+    /*@Description: This method allows the recent courses to be completed.*/
+    private void beginCourseDialog(final int position){
+
+        AlertDialog.Builder builder = DialogHelper.alertBuilder(getContext());
+        builder.setTitle(getString(R.string.in_process_dialog_title_text));
+        builder.setMessage(getString(R.string.in_process_dialog_message_text));
+        builder.setNegativeButton(getString(R.string.dialog_no_text), null);
+
+        builder.setPositiveButton(getString(R.string.dialog_yes_text),
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        ( (CoursesRvAdapter)(recyclerView.getAdapter()) )
+                                .setInProcess(position);
+                    }
+                });
+        builder.show();
     }
 
     /*@Description: This method allows the recent courses to be completed.*/
     private void completeCourseDialog(final int position){
 
         AlertDialog.Builder builder = DialogHelper.alertBuilder(getContext());
-        builder.setTitle(getString(R.string.dialog_title_text));
-        builder.setMessage(getString(R.string.dialog_message_text));
+        builder.setTitle(getString(R.string.complete_dialog_title_text));
+        builder.setMessage(getString(R.string.complete_dialog_message_text));
         builder.setNegativeButton(getString(R.string.dialog_no_text), null);
 
         builder.setPositiveButton(getString(R.string.dialog_yes_text),
                 new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                ( (RecentCoursesRvAdapter)(recyclerView.getAdapter()) )
-                        .getCertificate(position);
-            }
-        });
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        ( (CoursesRvAdapter)(recyclerView.getAdapter()) )
+                                .getCertificate(position);
+                    }
+                });
         builder.show();
     }
 
@@ -118,43 +160,6 @@ public class ProfileFragment extends Fragment implements RecentCoursesRvAdapter.
                 nestedScrollView.scrollTo(0,0);
             }
         }.start();
-    }
-
-
-    //Load mock item for testing ...
-    private List<RecentCourse> loadData(){
-
-        List<RecentCourse> recentCoursesList = new ArrayList<>();
-
-        RecentCourse recentCourse = new RecentCourse(RecentCourse.ProcessCode.COMPLETED);
-        recentCourse.setTitle("Figma for beginners");
-        recentCourse.setIsContinue(false);
-        recentCourse.setDuration("Duration: 24hr 30 min");
-        recentCourse.setImgIconResId(R.drawable.recent_cours_icon);
-
-        recentCoursesList.add(recentCourse);
-
-        for (int i=0; i<7; i++){
-
-            RecentCourse recentCourse1 = new RecentCourse(RecentCourse.ProcessCode.IN_PROCESS);
-            recentCourse1.setTitle("Figma for beginners"+i);
-            recentCourse1.setIsContinue(true);
-            recentCourse1.setDuration("Duration: 24hr 30 min");
-            recentCourse1.setImgIconResId(R.drawable.recent_cours_icon);
-
-            recentCoursesList.add(recentCourse1);
-
-        }
-
-        RecentCourse recentCourse2 = new RecentCourse(RecentCourse.ProcessCode.NOT_STARTED);
-        recentCourse2.setTitle("Figma for beginners");
-        recentCourse2.setIsContinue(true);
-        recentCourse2.setDuration("Duration: 24hr 30 min");
-        recentCourse2.setImgIconResId(R.drawable.recent_cours_icon);
-        recentCoursesList.add(recentCourse2);
-
-        return recentCoursesList;
-
     }
 
 

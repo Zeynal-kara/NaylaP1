@@ -5,11 +5,10 @@ import android.content.Context;
 
 import com.example.naylap1.R;
 
-public class RecentCourse {
+public class Course {
 
     int imgIconResId;
     String title, duration;
-    Boolean isContinue;
     ProcessCode processCode;
 
 
@@ -19,7 +18,7 @@ public class RecentCourse {
         NOT_STARTED
     }
 
-    public RecentCourse(ProcessCode processCode){
+    public Course(ProcessCode processCode){
         this.processCode = processCode;
     }
 
@@ -59,20 +58,12 @@ public class RecentCourse {
     }
 
 
-    public RecentCourse.ProcessCode getProcessCode() {
+    public Course.ProcessCode getProcessCode() {
         return processCode;
     }
 
-    public void setProcessCode(RecentCourse.ProcessCode processCode) {
+    public void setProcessCode(Course.ProcessCode processCode) {
         this.processCode = processCode;
-    }
-
-    public void setIsContinue(boolean isContinue){
-        this.isContinue = isContinue;
-    }
-
-    public boolean getIsContinue(){
-        return isContinue;
     }
 
 

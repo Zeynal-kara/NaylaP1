@@ -9,14 +9,24 @@
     <string name="bottom_nav_inbox_text">Inbox</string>
     <string name="bottom_nav_profile_text">Profile</string>
 
-    <string name="dialog_title_text">Are You Sure ?</string>
-    <string name="dialog_message_text">Set completed for this course.</string>
+    <string name="complete_dialog_title_text">Are You Sure ?</string>
+    <string name="complete_dialog_message_text">Set Completed for this course.</string>
+
+    <string name="in_process_dialog_title_text">Are You Sure ?</string>
+    <string name="in_process_dialog_message_text">Set In Progress for this course.</string>
+
     <string name="dialog_no_text">No</string>
     <string name="dialog_yes_text">Yes</string>
+
+    <string name="get_certificate_dialog_title_text">Are You Sure ?</string>
+    <string name="get_certificate_dialog_message_text">Get your certificate now!</string>
 
     <string name="process_text_completed">Completed</string>
     <string name="process_text_in_process">In Progress</string>
     <string name="process_text_not_started">Not Started</string>
     <string name="process_text_not_define">Process Not Defined</string>
+
+    <string name="btn_begin_text">Begin</string>
+    <string name="btn_continue_text">Continue</string>
 
 </resources>

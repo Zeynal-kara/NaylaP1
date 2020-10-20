@@ -301,7 +301,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:dividerHeight="10dp"
-            tools:listitem="@layout/list_item_recent_cours"/>
+            tools:listitem="@layout/list_item_course"/>
 
     </LinearLayout>
 

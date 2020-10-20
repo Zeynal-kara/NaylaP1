@@ -12,15 +12,15 @@ import androidx.core.content.res.ResourcesCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.naylap1.R;
-import com.example.naylap1.model.InboxMessage;
+import com.example.naylap1.model.Message;
 
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
 
-public class InboxRvAdapter extends RecyclerView.Adapter<InboxRvAdapter.ViewHolder> {
-    private List<InboxMessage> mMessages;
+public class MessageRvAdapter extends RecyclerView.Adapter<MessageRvAdapter.ViewHolder> {
+    private List<Message> mMessages;
     private Typeface mFontExtra, mFontBold, mFontMedium;
 
     private OnItemClickListener mListener;
@@ -43,21 +43,21 @@ public class InboxRvAdapter extends RecyclerView.Adapter<InboxRvAdapter.ViewHold
 
     }
 
-    public InboxRvAdapter(List<InboxMessage> messages, OnItemClickListener listener) {
+    public MessageRvAdapter(List<Message> messages, OnItemClickListener listener) {
         mMessages = messages;
         this.mListener = listener;
     }
 
     @NotNull
     @Override
-    public InboxRvAdapter.ViewHolder onCreateViewHolder(ViewGroup parent,
-                                                        int viewType) {
+    public MessageRvAdapter.ViewHolder onCreateViewHolder(ViewGroup parent,
+                                                          int viewType) {
 
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
 
         // Inflate the custom layout
-        View v = inflater.inflate(R.layout.list_item_inbox, parent, false);
+        View v = inflater.inflate(R.layout.list_item_message, parent, false);
 
 
         return new ViewHolder(v);
@@ -73,17 +73,17 @@ public class InboxRvAdapter extends RecyclerView.Adapter<InboxRvAdapter.ViewHold
 
 
 
-        if (mMessages.get(position).getUnreadCount() == 0){
-            holder.rlUnreadBadges.setVisibility(View.GONE);
-            holder.tvTitle.setTypeface(mFontMedium);
-            holder.tvContent.setTypeface(mFontMedium);
-            holder.tvContent.setTextColor(mColorGrey);
-        }else{
+        if (mMessages.get(position).hasUnreadMessage()){
             holder.rlUnreadBadges.setVisibility(View.VISIBLE);
             holder.tvUnreadCount.setText(String.valueOf(mMessages.get(position).getUnreadCount()));
             holder.tvTitle.setTypeface(mFontExtra);
             holder.tvContent.setTypeface(mFontBold);
             holder.tvContent.setTextColor(mColorBlack);
+        }else{
+            holder.rlUnreadBadges.setVisibility(View.GONE);
+            holder.tvTitle.setTypeface(mFontMedium);
+            holder.tvContent.setTypeface(mFontMedium);
+            holder.tvContent.setTextColor(mColorGrey);
         }
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -103,7 +103,7 @@ public class InboxRvAdapter extends RecyclerView.Adapter<InboxRvAdapter.ViewHold
         return mMessages.size();
     }
 
-    public InboxMessage getItem(int position) {
+    public Message getItem(int position) {
         return mMessages.get(position);
     }
 
@@ -120,7 +120,7 @@ public class InboxRvAdapter extends RecyclerView.Adapter<InboxRvAdapter.ViewHold
 
 
     public interface OnItemClickListener {
-        void onItemClick(InboxMessage inboxMessage, int position);
+        void onItemClick(Message message, int position);
 
     }
 

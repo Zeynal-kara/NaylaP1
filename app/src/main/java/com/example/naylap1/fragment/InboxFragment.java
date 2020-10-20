@@ -14,12 +14,9 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.naylap1.R;
-import com.example.naylap1.adapter.InboxRvAdapter;
-import com.example.naylap1.model.InboxMessage;
-
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import com.example.naylap1.adapter.MessageRvAdapter;
+import com.example.naylap1.model.Message;
+import com.example.naylap1.model.User;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -54,50 +51,22 @@ public class InboxFragment extends Fragment {
 
         final RecyclerView recyclerView = getActivity().findViewById(R.id.rv_fragment_inbox);
 
-        InboxRvAdapter inboxRvAdapter = new InboxRvAdapter(loadList(),
-                new InboxRvAdapter.OnItemClickListener() {
+        User user = User.getInstance();
+
+        MessageRvAdapter messageRvAdapter = new MessageRvAdapter(user.getMessageManager().getMessageList(),
+                new MessageRvAdapter.OnItemClickListener() {
 
                     @Override
-                    public void onItemClick(InboxMessage inboxMessage, int position) {
+                    public void onItemClick(Message inboxMessage, int position) {
                         Toast.makeText(getContext(), "Mesaj Okundu ...", Toast.LENGTH_LONG).show();
-                        ( (InboxRvAdapter)(recyclerView.getAdapter()) ).setItemRead(position);
+                        ( (MessageRvAdapter)(recyclerView.getAdapter()) ).setItemRead(position);
 
 
                     }
                 });
 
-        recyclerView.setAdapter(inboxRvAdapter);
+        recyclerView.setAdapter(messageRvAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
     }
 
-
-    //Load mock item for testing ...
-    private List<InboxMessage> loadList(){
-
-        List<InboxMessage>  messageList = new ArrayList<>();
-        InboxMessage inboxMessage = new InboxMessage();
-        inboxMessage.setTitle("From: Figma course");
-        inboxMessage.setContent("Congratulations! You passed the test and your certificate is ready.");
-        inboxMessage.setUnreadCount(1);
-        inboxMessage.setDate(new Date());
-
-        messageList.add(inboxMessage);
-
-
-
-        for (int i=0; i<7; i++){
-
-            InboxMessage inboxMessage1 = new InboxMessage();
-            inboxMessage1.setTitle("From: Figma course"+i);
-            inboxMessage1.setContent("Congratulations! You passed the test and your certificate is ready.");
-            inboxMessage1.setUnreadCount(0);
-            inboxMessage1.setDate(new Date());
-            messageList.add(inboxMessage1);
-
-        }
-
-
-
-        return messageList;
-    }
 }

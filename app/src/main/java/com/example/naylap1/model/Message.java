@@ -3,7 +3,7 @@ package com.example.naylap1.model;
 import java.text.DateFormat;
 import java.util.Date;
 
-public class InboxMessage {
+public class Message {
     String title, content;
     Date date;
     int unreadCount;
@@ -38,5 +38,9 @@ public class InboxMessage {
 
     public void setUnreadCount(int unreadCount) {
         this.unreadCount = unreadCount;
+    }
+
+    public boolean hasUnreadMessage(){
+        return unreadCount > 0;
     }
 }
