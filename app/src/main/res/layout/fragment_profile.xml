@@ -200,7 +200,7 @@
                             android:background="@drawable/profile_dot_green" />
 
                         <TextView
-                            android:id="@+id/tv_in_proses"
+                            android:id="@+id/tv_in_proses_num"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_above="@id/tv_in_proses_text"
@@ -238,7 +238,7 @@
                             android:background="@drawable/profile_dot_yellow" />
 
                         <TextView
-                            android:id="@+id/tv_not_started"
+                            android:id="@+id/tv_not_started_num"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_above="@id/tv_not_started_text"

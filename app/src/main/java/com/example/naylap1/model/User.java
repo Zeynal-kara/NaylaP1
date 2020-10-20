@@ -1,12 +1,12 @@
 package com.example.naylap1.model;
 import android.graphics.drawable.Drawable;
-import android.os.Bundle;
 
+import java.text.DateFormat;
 import java.util.Date;
 
 public class User {
     String name, surname, mail;
-    Drawable profileImage;
+    Drawable drawableProfileImage;
     Date joinDate;
     MessageManager messageManager;
     CourseManager courseManager;
@@ -26,6 +26,10 @@ public class User {
 
     public String getName() {
         return name;
+    }
+
+    public String getFullName() {
+        return name + " " + surname;
     }
 
     public void setName(String name) {
@@ -48,16 +52,16 @@ public class User {
         this.mail = mail;
     }
 
-    public Drawable getProfileImage() {
-        return profileImage;
+    public Drawable getDrawableProfileImage() {
+        return drawableProfileImage;
     }
 
-    public void setProfileImage(Drawable profileImage) {
-        this.profileImage = profileImage;
+    public void setDrawableProfileImage(Drawable drawableProfileImage) {
+        this.drawableProfileImage = drawableProfileImage;
     }
 
-    public Date getJoinDate() {
-        return joinDate;
+    public String getJoinDate() {
+        return DateFormat.getDateInstance().format(joinDate);
     }
 
     public void setJoinDate(Date joinDate) {

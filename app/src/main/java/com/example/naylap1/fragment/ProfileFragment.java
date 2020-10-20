@@ -15,6 +15,8 @@ import android.os.CountDownTimer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.naylap1.helper.DialogHelper;
@@ -29,6 +31,9 @@ import com.example.naylap1.model.User;
 public class ProfileFragment extends Fragment implements CoursesRvAdapter.OnItemClickListener{
 
     RecyclerView recyclerView;
+    TextView tvUserName, tvMail, tvJoinDate, tvCompleteNum, tvInProcessNum, tvNotStartedNum;
+    ImageView imgProfile;
+    User user;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -56,14 +61,20 @@ public class ProfileFragment extends Fragment implements CoursesRvAdapter.OnItem
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-       recyclerView =
-                getActivity().findViewById(R.id.rv_fragment_profile_recent_courses);
-
         final NestedScrollView nestedScrollView =
                 getActivity().findViewById(R.id.nscoll_view_fragment_profile_parent);
 
+        defineElements();
+        
+        user = User.getInstance();
 
-        User user = User.getInstance();
+        tvUserName.setText(user.getFullName());
+        tvMail.setText(user.getMail());
+        String Joined = getResources().getString(R.string.profile_joined_text) +" "+ user.getJoinDate();
+        tvJoinDate.setText(Joined);
+        imgProfile.setImageDrawable(user.getDrawableProfileImage());
+
+        setCoursesCount();
 
         CoursesRvAdapter coursesRvAdapter =
                 new CoursesRvAdapter(user.getCourseManager().getCourseList(), this);
@@ -73,6 +84,27 @@ public class ProfileFragment extends Fragment implements CoursesRvAdapter.OnItem
         recyclerView.setAdapter(coursesRvAdapter);
 
         scrollUp(nestedScrollView);
+    }
+
+    private void defineElements(){
+
+        tvUserName = getActivity().findViewById(R.id.tvUserName);
+        tvMail = getActivity().findViewById(R.id.tvUserMail);
+        tvJoinDate = getActivity().findViewById(R.id.tvEnjoyDate);
+        imgProfile = getActivity().findViewById(R.id.imgProfile);
+
+        tvCompleteNum = getActivity().findViewById(R.id.tv_complete_num);
+        tvInProcessNum = getActivity().findViewById(R.id.tv_in_proses_num);
+        tvNotStartedNum = getActivity().findViewById(R.id.tv_not_started_num);
+
+        recyclerView =
+                getActivity().findViewById(R.id.rv_fragment_profile_recent_courses);
+    }
+
+    private void setCoursesCount(){
+        tvCompleteNum.setText(String.valueOf(user.getCourseManager().getCompletedCourseList().size()));
+        tvInProcessNum.setText(String.valueOf(user.getCourseManager().getInProcessCourseList().size()));
+        tvNotStartedNum.setText(String.valueOf(user.getCourseManager().getNotStartedCourseList().size()));
     }
 
     @Override
@@ -118,6 +150,7 @@ public class ProfileFragment extends Fragment implements CoursesRvAdapter.OnItem
                     public void onClick(DialogInterface dialogInterface, int i) {
                         ( (CoursesRvAdapter)(recyclerView.getAdapter()) )
                                 .setInProcess(position);
+                        setCoursesCount();
                     }
                 });
         builder.show();
@@ -137,6 +170,7 @@ public class ProfileFragment extends Fragment implements CoursesRvAdapter.OnItem
                     public void onClick(DialogInterface dialogInterface, int i) {
                         ( (CoursesRvAdapter)(recyclerView.getAdapter()) )
                                 .getCertificate(position);
+                        setCoursesCount();
                     }
                 });
         builder.show();

@@ -63,6 +63,8 @@
     <string name="nav_inbox">Inbox</string>
     <string name="nav_profile">Profile</string>
 
+    <string name="profile_joined_text">Joined</string>
+
 
 
 </resources>

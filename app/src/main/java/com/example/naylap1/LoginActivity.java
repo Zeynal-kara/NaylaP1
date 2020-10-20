@@ -45,7 +45,7 @@ public class LoginActivity extends AppCompatActivity {
         user.setSurname("Green");
         user.setMail("Rachel@gmail.com");
         user.setJoinDate(new Date());
-        user.setProfileImage(ContextCompat.getDrawable(this, R.drawable.profile_pic));
+        user.setDrawableProfileImage(ContextCompat.getDrawable(this, R.drawable.profile_pic));
 
         user.getMessageManager().setMessageList(loadMockMessages());
         user.getCourseManager().setCourseList(loadMockCourses());
