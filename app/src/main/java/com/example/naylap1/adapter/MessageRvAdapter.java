@@ -137,4 +137,8 @@ public class MessageRvAdapter extends RecyclerView.Adapter<MessageRvAdapter.View
         mColorBlack = mContext.getResources().getColor(R.color._colorTextBlack, null);
 
     }
+
+    public List<Message> getMessageList(){
+        return mMessages;
+    }
 }

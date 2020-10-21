@@ -1,9 +1,10 @@
 package com.example.naylap1.model;
 
+import java.io.Serializable;
 import java.text.DateFormat;
 import java.util.Date;
 
-public class Message {
+public class Message implements Serializable {
     String title, content;
     Date date;
     int unreadCount;

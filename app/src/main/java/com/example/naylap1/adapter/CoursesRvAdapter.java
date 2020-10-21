@@ -159,5 +159,9 @@ public class CoursesRvAdapter extends RecyclerView.Adapter<CoursesRvAdapter.View
         btnTextContinue = context.getResources().getString(R.string.btn_continue_text);
 
     }
+
+    public List<Course> getCourseList(){
+        return mCourseList;
+    }
 }
 

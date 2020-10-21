@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.example.naylap1.adapter.HomePagerAdapter;
 import com.example.naylap1.adapter.HomePagerAdapter.PAGE;
+import com.example.naylap1.model.User;
 import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 
 public class MainActivity extends AppCompatActivity
@@ -46,7 +47,11 @@ public class MainActivity extends AppCompatActivity
         bottomNav.setOnItemSelectedListener(this);
 
         bottomNav.setItemSelected(R.id.nav_category, true);
-        bottomNav.showBadge(R.id.nav_inbox, 1);
+
+        int unReadMessageCount = User.getInstance().getMessageManager().getUnreadCount();
+        if (unReadMessageCount > 0){
+            bottomNav.showBadge(R.id.nav_inbox, unReadMessageCount);
+        }
 
     }
 

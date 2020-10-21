@@ -5,7 +5,9 @@ import android.content.Context;
 
 import com.example.naylap1.R;
 
-public class Course {
+import java.io.Serializable;
+
+public class Course implements Serializable {
 
     int imgIconResId;
     String title, duration;

@@ -23,6 +23,8 @@ import com.example.naylap1.model.User;
  */
 public class InboxFragment extends Fragment {
 
+    User user;
+    RecyclerView recyclerView;
 
     public InboxFragment() {
         // Required empty public constructor
@@ -49,9 +51,9 @@ public class InboxFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        final RecyclerView recyclerView = getActivity().findViewById(R.id.rv_fragment_inbox);
+        recyclerView = getActivity().findViewById(R.id.rv_fragment_inbox);
 
-        User user = User.getInstance();
+        user = User.getInstance();
 
         MessageRvAdapter messageRvAdapter = new MessageRvAdapter(user.getMessageManager().getMessageList(),
                 new MessageRvAdapter.OnItemClickListener() {
@@ -69,4 +71,10 @@ public class InboxFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
     }
 
+    @Override
+    public void onPause() {
+        user.getMessageManager().setMessageList(( (MessageRvAdapter)(recyclerView.getAdapter()) ).getMessageList());
+        user.saveUser(getActivity().getApplicationContext());
+        super.onPause();
+    }
 }
